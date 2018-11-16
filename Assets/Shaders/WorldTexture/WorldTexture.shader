@@ -6,7 +6,7 @@ Shader "WorldPositionTexture/WorldTexture"
 
 		_Color("Color", Color) = (1,1,1,1)
 		_MainTex("Base Color", 2D) = "white" {}
-	_UVs("UV Scale", float) = 1.0
+		_UVs("UV Scale", float) = 1.0
 
 	}
 
@@ -56,7 +56,7 @@ Shader "WorldPositionTexture/WorldTexture"
 
 		//---- World Space (Aligned) Evaluation Here -----
 
-		float3 Pos = IN.worldPos / (-1.0 * abs(_UVs));
+		float3 Pos = IN.worldPos / (-1.0 * abs(_UVs));		// To scale the texture UVs
 
 		float3 c00 = tex2D(_MainTex, IN.worldPos / 10);
 
